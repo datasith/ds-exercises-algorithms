@@ -10,18 +10,18 @@ class Solution(object):
             for j in range(len(input)):
                 if input[i][j] == 1:
                     count += 1
-                    self.bfs(i, j, input)
+                    self.dfs(i, j, input)
         return count
 
-    def bfs(self, i, j, input):
+    def dfs(self, i, j, input):
         n = len(input) - 1
         if (i < 0 or i > n or j < 0 or j > n or input[i][j] != 1): 
             return
         input[i][j] = 0
-        self.bfs(i+1, j, input)
-        self.bfs(i-1, j, input)
-        self.bfs(i, j+1, input)
-        self.bfs(i, j-1, input)
+        self.dfs(i+1, j, input)
+        self.dfs(i-1, j, input)
+        self.dfs(i, j+1, input)
+        self.dfs(i, j-1, input)
         return
 
 if __name__ == '__main__':

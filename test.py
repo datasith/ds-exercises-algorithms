@@ -67,5 +67,6 @@ c.right = f
 # d   e     f
 
 print(all_tree_paths_str(a))
+print(all_tree_paths_str(a))
 print(all_tree_paths_list(a))
 
