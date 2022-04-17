@@ -1,28 +1,26 @@
 class Solution(object):
-    def merge(self, x: list, y: list) -> list:
-        left = right = 0
-        output = []
+    def merge(self, left: list, right: list) -> list:
+        i = 0
+        j = 0
+        merged = []
+        
+        left = list(filter(None, left))
+        left = sorted(left)
+        right = sorted(right)
 
-        x = list(filter(None, x))
-        x, y =  sorted(x), sorted(y)
-        n, m = len(x), len(y)
-        while True:
-            if left < n and right < m:
-                if x[left] <= y[right]:
-                    output.append(x[left])
-                    left += 1
-                else:
-                    output.append(y[right])
-                    right += 1
-            elif left < n:
-                output.append(x[left])
-                left += 1
-            elif right < m:
-                output.append(y[right])
-                right += 1
+        while i < len(left) and j < len(right):
+            if left[i] <= right[j]:
+                merged.append(left[i])
+                i += 1
             else:
-                break
-        return output
+                merged.append(right[j])
+                j += 1
+        
+        if i < len(left):
+            merged += left[i:]
+        if j < len(right):
+            merged += right[j:]
+        return merged
 
 if __name__ == '__main__':
     sol = Solution()
