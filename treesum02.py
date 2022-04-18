@@ -4,32 +4,27 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-def treesum(root, treepath = [], paths=[]):
+def treesum(root):
     if not root:
-        return
-
-    if not root.left and not root.right:
-        treepath.append(root.val)
-        paths.append(treepath)
+        return float("-inf")
     
-    if root.left:
-        left = [ *treepath ]
-        left.append(root.val)
-        treesum(root.left, left, paths)
+    if not root.left and not root.right:
+        return root.val
 
-    if root.right:
-        right = [ *treepath ]
-        right.append(root.val)
-        treesum(root.right, right, paths)
+    left = root.val + treesum(root.left)
+    right = root.val + treesum(root.right)
 
-    return paths
+    return max(left, right)
 
 if __name__ == "__main__":
     a = TreeNode(1)
     b = TreeNode(2)
     c = TreeNode(3)
+    d = TreeNode(5)
+    e = TreeNode(10)
 
     a.left = b
     a.right = c
-
+    c.left = d
+    b.left = e
     print(treesum(a))

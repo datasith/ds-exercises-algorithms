@@ -1,47 +1,33 @@
-'''
-input = [1,2,4,6,5,3]
 
-  [1,2,4]     [6,5,3]
- [1] [2,4]   [6] [5,3]
-    [2] [4]     [5] [3]
-
-
-
-return [1,2,3,4,5,6]
-'''
-
-def merge_sort(nums):
-  output = []
+def mergesort(nums):
   if len(nums) <= 1:
     return nums
-  
-  mid = len(nums) // 2
-  left = merge_sort(nums[:mid])
-  right = merge_sort(nums[mid:])
-  
-  return merge(left, right)
 
-def merge(left, right):
+  pivot = len(nums) // 2
+
+  left = mergesort(nums[:pivot])
+  right = mergesort(nums[pivot:])
+  return merge(left,right)
+
+def merge(l, r):
   i = 0
   j = 0
-  merged = [0]*(len(left)+len(right))
-  idx = 0
-  
-  while i < len(left) and j < len(right):
-    if left[i] <= right[j]:
-      merged[idx] = left[i]
-      idx+=1
+  output = []
+  while i < len(l) and j < len(r):
+    if l[i] <= r[j]:
+      output.append(l[i])
       i += 1
     else:
-      merged[idx] = right[j]
-      idx+=1
+      output.append(r[j])
       j += 1
-  
-  if i < len(left):
-    merged[idx:] = left[i:]
-  if j < len(right):
-    merged[idx:] = right[j:]
-  return merged
-    
-numbers = [10, 4, 42, 5, 8, 100, 5, 6, 12, 40]
-print(merge_sort(numbers))
+  if i < len(l):
+    output += l[i:]
+  if j < len(r):
+    output += r[j:]
+  return output
+
+if __name__ == "__main__":
+
+  nums = [1,3,4,5,2,-81, 199, 3]
+
+  print(mergesort(nums))
