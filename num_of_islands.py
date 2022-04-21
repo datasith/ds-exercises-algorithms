@@ -1,31 +1,26 @@
-from typing import List
+def num_of_islands(grid):
+    count = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == 1:
+                count += 1
+                dfs(grid, i, j)
+    return count
 
-class Solution(object):
-    def __init__(self):
-        pass
-
-    def num_of_islands(self, input: List[list]) -> int:
-        count = 0
-        for i in range(len(input)):
-            for j in range(len(input)):
-                if input[i][j] == 1:
-                    count += 1
-                    self.dfs(i, j, input)
-        return count
-
-    def dfs(self, i, j, input):
-        n = len(input) - 1
-        if (i < 0 or i > n or j < 0 or j > n or input[i][j] != 1): 
-            return
-        input[i][j] = 0
-        self.dfs(i+1, j, input)
-        self.dfs(i-1, j, input)
-        self.dfs(i, j+1, input)
-        self.dfs(i, j-1, input)
+def dfs(grid, i, j):
+    if i < 0 or j < 0 or i > len(grid)-1 or j > len(grid[0])-1 or grid[i][j] == 0:
         return
+        
+    grid[i][j] = 0
 
-if __name__ == '__main__':
-    sol = Solution()
+    dfs( grid, i-1, j )
+    dfs( grid, i+1, j )
+    dfs( grid, i, j-1 )
+    dfs( grid, i, j+1 )
+
+import unittest
+class TestStringMethods(unittest.TestCase):
+  def test_1(self):
     input = [
         [1,1,1,0,0],
         [1,1,1,0,0],
@@ -33,5 +28,7 @@ if __name__ == '__main__':
         [1,1,1,0,0],
         [1,1,1,0,0]
     ]
-    ans = sol.num_of_islands(input)
-    print(ans)
+    self.assertEqual( num_of_islands(input), 3 )
+
+if __name__ == '__main__':
+  unittest.main()
