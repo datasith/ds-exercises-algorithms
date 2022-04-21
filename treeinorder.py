@@ -6,12 +6,11 @@ class TreeNode(object):
 
 def inorder(root, output=[]):
     if not root:
-        return
+        return []
 
-    inorder(root.left, output)
+    inorder(root.left)
     output.append(root.val)
-    inorder(root.right, output)
-
+    inorder(root.right)
     return output
 
 if __name__ == "__main__":

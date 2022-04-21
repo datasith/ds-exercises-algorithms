@@ -1,33 +1,38 @@
+def mergesort(input):
+  if len(input) <= 1:
+    return input
 
-def mergesort(nums):
-  if len(nums) <= 1:
-    return nums
+  pivot = len(input) // 2
 
-  pivot = len(nums) // 2
+  left = mergesort(input[:pivot])
+  right = mergesort(input[pivot:])
 
-  left = mergesort(nums[:pivot])
-  right = mergesort(nums[pivot:])
   return merge(left,right)
 
-def merge(l, r):
+
+def merge(l,r):
+  n = len(l)
+  m = len(r)
   i = 0
   j = 0
   output = []
-  while i < len(l) and j < len(r):
+
+  while i < n and j < m:
     if l[i] <= r[j]:
       output.append(l[i])
-      i += 1
+      i+=1
     else:
       output.append(r[j])
-      j += 1
-  if i < len(l):
+      j+=1
+
+  if i < n:
     output += l[i:]
-  if j < len(r):
+  if j < m:
     output += r[j:]
+
   return output
 
-if __name__ == "__main__":
 
-  nums = [1,3,4,5,2,-81, 199, 3]
-
-  print(mergesort(nums))
+if __name__ == '__main__':
+  input = [1,3,100,-1,-100,2]
+  print(mergesort(input))
