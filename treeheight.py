@@ -5,7 +5,10 @@ class TreeNode(object):
         self.right = None
 
 def treeheight(root):
-    pass
+    if not root:
+        return -1
+
+    return 1 + max(treeheight(root.left),treeheight(root.right))
 
 if __name__ == "__main__":
     a = TreeNode(1)
