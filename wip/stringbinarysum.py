@@ -1,8 +1,13 @@
 # example: b1 = "1111", b2 = "1"
 def ba(b1, b2):
-  return "1"
-
-
+  hashmap = {
+      ('1','0') : ('1', '0'),
+      ('0','1') : ('1', '0'),
+      ('0','0') : ('0', '0'),
+      ('1','1') : ('1', '1')
+  }
+  
+  
 
 import unittest
 class TestStringMethods(unittest.TestCase):

@@ -5,10 +5,9 @@ class Node:
     self.right = None
 
 def post_order(root):
+  # preorder
   stack = [ root ]
   output = []
-  
-  # preorder: 
   
   while stack:
     current = stack.pop()
@@ -22,10 +21,10 @@ def post_order(root):
       
   return output
 
+  # inorder
   stack = []
   output = []
   current = root
-  # inorder: 
   
   while stack or current:
     if current:
@@ -36,6 +35,20 @@ def post_order(root):
       output.append(current.val)
       current = current.right
   return output
+
+  stack = []
+  output = []
+  current = root
+ 
+  while stack or current:
+    if current:
+      stack.append(current)
+      output.append(current.val)      
+      current = current.right
+    else:
+      current = stack.pop()
+      current = current.left
+  return output[::-1] 
 
 a = Node('a')
 b = Node('b')

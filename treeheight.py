@@ -11,12 +11,12 @@ def treeheight(root):
     return 1 + max(treeheight(root.left),treeheight(root.right))
 
 if __name__ == "__main__":
-    a = TreeNode(1)
-    b = TreeNode(2)
-    c = TreeNode(3)
-    d = TreeNode(4)
-
-    a.left = b
-    a.right = c
-    b.right = d
-    print(treeheight(a))
+    root_2 = TreeNode(10)
+    root_2.left = TreeNode(8)
+    root_2.right = TreeNode(15)
+    root_2.left.left = TreeNode(4)
+    root_2.left.left.right = TreeNode(5)
+    root_2.left.left.right.right = TreeNode(6)
+    root_2.right.left =TreeNode(14)
+    root_2.right.right = TreeNode(16)
+    print(treeheight(root_2))
