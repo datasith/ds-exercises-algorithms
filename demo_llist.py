@@ -1,38 +1,26 @@
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from util import ListNode, LinkedList, arr_to_llist 
 
-    def __repr__(self):
-        return "ListNode(val=" + str(self.val) + ", next={" + str(self.next) + "})"
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
-def list_to_llist(arr):
-    if len(arr) < 1:
-        return None
-    elif len(arr) == 1:
-        return ListNode(arr[0])
-    else:
-        return ListNode(arr[0], next=list_to_llist(arr[1:]))
+def reverse_list(head):
+    prev = None
+    while head:
+        next_node = head.next
+        head.next = prev
+        prev = head
+        head = next_node
+
+    return LinkedList(head=prev)
 
 if __name__ == '__main__':
-    def reverseList(head: ListNode) -> ListNode:
-        prev = None
-        while head:
-            next_node = head.next
-            head.next = prev
-            prev = head
-            head = next_node
-
-        return prev
-
-    # test cases
-    # ListNode(val=1, next={ListNode(val=2, next={ListNode(val=3, next={ListNode(val=4, next={ListNode(val=5, next={None})})})})})    
-    t1 = list_to_llist([1, 2, 3, 4, 5]) 
-    # ListNode(val=1, next={ListNode(val=2, next={None})})
-    t2 = list_to_llist([1, 2])  
-    t3 = list_to_llist([])
-
-    # answers
-    print(reverseList(t1))
-    print(reverseList(t2))
-    print(reverseList(t3))    
+    list = LinkedList()
+    list.head = ListNode("Mon")
+    # Create llist from array
+    list = arr_to_llist([1, 2, 3, 4, 5])
+    list.listprint()
+    # Reverse it and test print
+    rev_list = reverse_list(list.head)
+    rev_list.listprint()

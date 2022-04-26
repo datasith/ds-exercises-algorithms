@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 class TreeNode:
     def __init__(self, val):
         self.l = None

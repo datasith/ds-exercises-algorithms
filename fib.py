@@ -1,20 +1,14 @@
-memo = {}
-
-def fib(n: int, ans: int=0):
+def fib(n, memo={}):
     if n == 0:
         return 0
-    elif n == 1:
+    elif n <= 2:
         return 1
-    elif n not in memo:
-        memo[n] = fib(n-1, ans) + fib(n-2, ans)
-        ans += memo[n]
-    else:
+    elif n in memo:
         return memo[n]
-    return ans
-
-
+    elif n not in memo:
+        memo[n] = fib(n-1) + fib(n-2)
+    return memo[n]
 
 if __name__ == '__main__':
-    ans = fib(35)
-    print(ans)
-    print(memo)
+    assert fib(6)==8, "check yo code!"
+    print(f"fib(35) -> {fib(35)}")
