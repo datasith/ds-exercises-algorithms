@@ -1,8 +1,10 @@
-class TreeNode(object):
-    def __init__(self,val):
-        self.val = val
-        self.left = None
-        self.right = None
+from utils import TreeNode, print_tree
+
+# class TreeNode(object):
+#     def __init__(self, val):
+#         self.val = val
+#         self.left = None
+#         self.right = None
 
 def tree_width(root, level=0, levels={}):
   if level not in levels:
@@ -23,37 +25,42 @@ def tree_width(root, level=0, levels={}):
   width = 0
   for val_list in levels.values():
     width = max(width, len(val_list))
-  return levels
+  # print([ len(l) for l in levels.values() ])  
+  return max( [ len(l) for l in levels.values() ] )
 
 
-if __name__ == "__main__":
-  a = TreeNode('a')
-  b = TreeNode('b')
-  c = TreeNode('c')
-  d = TreeNode('d')
-  e = TreeNode('e')
-  f = TreeNode('f')
-  g = TreeNode('g')
-  h = TreeNode('h')
-  i = TreeNode('i')
-  j = TreeNode('j')
+import unittest
+class CustomTest(unittest.TestCase):
+    a = TreeNode(7)
+    b = TreeNode(5)
+    c = TreeNode(1)
+    d = TreeNode(1)
+    e = TreeNode(8)
+    f = TreeNode(7)
+    g = TreeNode(1)
+    h = TreeNode(1)
 
-  a.left = b
-  a.right = c
-  b.left = d
-  b.right = e
-  c.right = f
-  e.left = g
-  e.right = h
-  f.left = i
-  d.left = j
+    a.left = b
+    a.right = c
+    b.left = d
+    b.right = e
+    c.right = f
+    e.left = g
+    f.right = h
 
-  #         a
-  #      /    \
-  #     b      c
-  #   /  \      \
-  #  d    e      f
-  #      / \    /
-  #     g  h   i
+    #      7
+    #    /   \
+    #   5     1
+    #  / \     \
+    # 1   8     7
+    #    /       \
+    #   1         1
+    #
+    def test_01(self):
+        print_tree(self.a)
+        ans = tree_width(self.a)
+        print(ans)
+        self.assertEqual(ans, 4)
 
-  print( tree_width(a) ) # ->
+if __name__ == '__main__':
+    unittest.main()

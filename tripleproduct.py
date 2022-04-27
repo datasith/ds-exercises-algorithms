@@ -10,8 +10,14 @@ def findMaxProduct(arr):
 
     return output
 
+import unittest
+class CustomTest(unittest.TestCase):
+    def test_01(self):
+        arr = [1, 2, 3, 4, 5] 
+        output = [-1, -1, 6, 24, 60]
+        ans = findMaxProduct(arr)
+        print(ans)
+        self.assertEqual(ans, output)
 
-arr = [1, 2, 3, 4, 5]
-
-print(findMaxProduct(arr))
-# output = [-1, -1, 6, 24, 60]  
+if __name__ == '__main__':
+    unittest.main()

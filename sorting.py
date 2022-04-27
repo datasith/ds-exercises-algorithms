@@ -59,15 +59,14 @@ def merge_sort(L):
 
 import unittest
 class CustomTest(unittest.TestCase):
+    input = [1,3,5,-7,2,6,25,18,13]
+    result = [-7,1,2,3,5,6,13,18,25]
     def test_01(self):
-        input = [1,3,5,-7,2,6,25,18,13]
-        self.assertEqual( bubble_sort(input), [-7,1,2,3,5,6,13,18,25] )
+        self.assertEqual( bubble_sort(self.input), self.result )
     def test_02(self):
-        input = [1,3,5,-7,2,6,25,18,13]
-        self.assertEqual( selection_sort(input), [-7,1,2,3,5,6,13,18,25] )
+        self.assertEqual( selection_sort(self.input), self.result )
     def test_03(self):
-        input = [1,3,5,-7,2,6,25,18,13]
-        self.assertEqual( merge_sort(input), [-7,1,2,3,5,6,13,18,25] )        
+        self.assertEqual( merge_sort(self.input), self.result )        
 
 if __name__ == '__main__':
     unittest.main()

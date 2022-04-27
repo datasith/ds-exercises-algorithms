@@ -1,4 +1,4 @@
-from util import TreeNode, print_tree
+from utils import TreeNode, print_tree
 
 # class TreeNode(object):
 #     def __init__(self, val):
@@ -7,27 +7,27 @@ from util import TreeNode, print_tree
 #         self.right = None
         
 def all_tree_paths_str(root, paths=[], path = ''):
-        if root:
-            path += str(root.val)
-            
-            if not root.left and not root.right:    # if reach a leaf
-                paths.append(path)    # update paths    
-            else:
-                all_tree_paths_str(root.left, paths, path)
-                all_tree_paths_str(root.right, paths, path)
-        return paths
+    if root:
+        path += str(root.val)
+        
+        if not root.left and not root.right:    # if reach a leaf
+            paths.append(path)    # update paths    
+        else:
+            all_tree_paths_str(root.left, paths, path)
+            all_tree_paths_str(root.right, paths, path)
+    return paths
 
 def all_tree_paths_list(root, paths=[], path = []):
-        if root:
-            path.append(root.val)
-            
-            if not root.left and not root.right:    # if reach a leaf
-                paths.append(path)    # update paths    
-                path = []
-            else:
-                all_tree_paths_list(root.left, paths, path)
-                all_tree_paths_list(root.right, paths, path)
-        return paths    
+    if root:
+        path.append(root.val)
+        
+        if not root.left and not root.right:    # if reach a leaf
+            paths.append(path)    # update paths    
+            path = []
+        else:
+            all_tree_paths_list(root.left, paths, path)
+            all_tree_paths_list(root.right, paths, path)
+    return paths    
 
 def all_tree_paths(root, paths = [], treepath = []):
     if not root:

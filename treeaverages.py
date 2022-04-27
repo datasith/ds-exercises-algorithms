@@ -1,4 +1,4 @@
-from util import TreeNode
+from utils import TreeNode
 
 # class TreeNode(object):
 #     def __init__(self, val):
@@ -6,7 +6,7 @@ from util import TreeNode
 #         self.left = None
 #         self.right = None
 
-def dfs(node, data={}, level=0):
+def get_averages(node, data={}, level=0):
     if not node:
         return None
 
@@ -15,8 +15,8 @@ def dfs(node, data={}, level=0):
 
     data[level].append(node.val)
 
-    dfs(node.left, data, level+1)
-    dfs(node.right, data, level+1)
+    get_averages(node.left, data, level+1)
+    get_averages(node.right, data, level+1)
 
     avg = []
     for l in data:
@@ -37,8 +37,9 @@ if __name__ == '__main__':
     b.left = d
     b.right = e
     c.right = f
-
-    print(dfs(a))
+    ans = get_averages(a)
+    assert ans == [1,2.5,5], "check yo code" 
+    print(ans)
     
 '''
       1

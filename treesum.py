@@ -6,19 +6,25 @@ from utils import TreeNode, print_tree
 #         self.val = val
 #         self.left = None
 
-def count_nodes(node):
-    if not node:
+class TreeNode(object):
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def treesum(root):
+    if not root:
         return 0
 
-    return 1 + count_nodes(node.left) + count_nodes(node.right)
+    return root.val + treesum(root.left) + treesum(root.right)
 
 class CustomTest(unittest.TestCase):
     a = TreeNode(1)
     b = TreeNode(2)
-    c = TreeNode(3)
-    d = TreeNode(4)
-    e = TreeNode(5)
-    f = TreeNode(6)
+    c = TreeNode(5)
+    d = TreeNode(6)
+    e = TreeNode(10)
+    f = TreeNode(12)
 
     a.left = b
     a.right = c
@@ -27,7 +33,7 @@ class CustomTest(unittest.TestCase):
     c.right = f        
     def test01(self):
         print_tree(self.a)
-        self.assertEqual( count_nodes(self.a), 6 )
+        self.assertEqual( treesum(self.a), 36 )
 
 if __name__ == '__main__':
     unittest.main()

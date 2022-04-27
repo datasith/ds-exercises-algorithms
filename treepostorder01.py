@@ -6,18 +6,16 @@ from utils import TreeNode, print_tree
 #         self.left = None
 #         self.right = None
 
-from collections import deque
-def invert(root, output=[]):
+def postorder(root, output=[]):
     if not root:
-        return None
-    root.left, root.right = root.right, root.left
-    invert(root.left, output)
+        return []
+
+    postorder(root.left)
+    postorder(root.right)
     output.append(root.val)
-    invert(root.right, output)
     return output
 
-import unittest
-class CustomTest(unittest.TestCase):
+if __name__ == '__main__':
     a = TreeNode(7)
     b = TreeNode(5)
     c = TreeNode(1)
@@ -42,19 +40,11 @@ class CustomTest(unittest.TestCase):
     # 1   8     7
     #    /       \
     #   1         1
-    #
-    #       7
-    #      /  \
-    #     1     5
-    #    /     / \
-    #   7     8   1
-    #  /       \
-    # 1         1
-    def test_01(self): 
-        print_tree(self.a)
-        ans = invert(self.a)
-        print(ans)
-        self.assertEqual(ans,  [1, 7, 1, 7, 8, 1, 5, 1]) # depth-first (in-order) traversal
 
-if __name__ == '__main__':
-    unittest.main()
+    a.left = b
+    a.right = c
+
+    ans = postorder(a)
+    assert ans == [1, 1, 8, 5, 1, 7, 1, 7], "check yo code" 
+    print_tree(a)
+    print(ans)

@@ -1,11 +1,13 @@
-class TreeNode(object):
-    def __init__(self, val):
-        self.val = val
-        self.left = None
-        self.right = None
+from utils import TreeNode, print_tree
+
+# class TreeNode(object):
+#     def __init__(self, val):
+#         self.val = val
+#         self.left = None
+#         self.right = None
 
 from collections import deque
-def invertTree(root):
+def invert(root):
     if not root:
         return None
 
@@ -22,32 +24,48 @@ def invertTree(root):
             queue.append(current.right)
     return output
 
-
 def swap(node):
     node.left, node.right = node.right, node.left
 
-if __name__ == '__main__':
-    a = TreeNode(1)
-    b = TreeNode(2)
-    c = TreeNode(3)
-    d = TreeNode(4)
-    e = TreeNode(5)
-    f = TreeNode(6)
-
-
+import unittest
+class CustomTest(unittest.TestCase):
+    a = TreeNode(7)
+    b = TreeNode(5)
+    c = TreeNode(1)
+    d = TreeNode(1)
+    e = TreeNode(8)
+    f = TreeNode(7)
+    g = TreeNode(1)
+    h = TreeNode(1)
 
     a.left = b
     a.right = c
     b.left = d
     b.right = e
     c.right = f
+    e.left = g
+    f.right = h
 
-    print(invertTree(a))
-'''
-   1
- /   \
- 2    3
-/ \  /
-4 5  6
-[1,3,2,6,5,4]
-'''
+    #      7
+    #    /   \
+    #   5     1
+    #  / \     \
+    # 1   8     7
+    #    /       \
+    #   1         1
+    #
+    #       7
+    #      /  \
+    #     1     5
+    #    /     / \
+    #   7     8   1
+    #  /       \
+    # 1         1
+    def test_01(self):
+        print_tree(self.a)
+        ans = invert(self.a)
+        print(ans)
+        self.assertEqual(ans,[7, 1, 5, 7, 8, 1, 1, 1]) # bread-first traversal
+
+if __name__ == '__main__':
+    unittest.main()
