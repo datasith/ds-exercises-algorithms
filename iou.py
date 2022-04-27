@@ -14,7 +14,10 @@ def area(bbox):
     x1,y1,x2,y2 = bbox
     return abs(x1-x2) * abs(y1-y2)
 
-bbox1 = [0,0,1,1]
-bbox2 = [0.5,0.5,1,1]
 
-print(iou(bbox2,bbox1))
+if __name__ == '__main__':
+    bbox1 = [0,0,1,1]
+    bbox2 = [0.5,0.5,1,1]
+    ans = iou(bbox2,bbox1) # -> 0.25
+    assert ans == 0.25, "check yo code!"
+    print(ans)
