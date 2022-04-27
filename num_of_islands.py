@@ -20,15 +20,15 @@ def dfs(grid, i, j):
 
 import unittest
 class CustomTest(unittest.TestCase):
-  def test_01(self):
-    input = [
-        [1,1,1,0,0],
-        [1,1,1,0,0],
-        [0,0,0,1,1],
-        [1,1,1,0,0],
-        [1,1,1,0,0]
-    ]
-    self.assertEqual( num_of_islands(input), 3 )
+    def test_01(self):
+        input = [
+                    [1,1,1,0,0],
+                    [1,1,1,0,0],
+                    [0,0,0,1,1],
+                    [1,1,1,0,0],
+                    [1,1,1,0,0]
+                ]
+        self.assertEqual( num_of_islands(input), 3 )
 
 if __name__ == '__main__':
-  unittest.main()
+    unittest.main()

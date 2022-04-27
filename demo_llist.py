@@ -4,7 +4,7 @@ from util import ListNode, LinkedList, arr_to_llist
 #     def __init__(self, val=None):
 #         self.val = val
 #         self.next = None
-
+#
 # class LinkedList:
 #     def __init__(self, head=None):
 #         self.head = head

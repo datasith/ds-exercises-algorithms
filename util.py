@@ -30,16 +30,7 @@ class TreeNode(object):
         self.right = None
 
 if __name__ == '__main__':
-    list = LinkedList(ListNode("Mon"))
-    e2 = ListNode("Tue")
-    e3 = ListNode("Wed")
-    # Link first node to second node
-    list.head.next = e2
-    # Link second node to third node
-    e2.next = e3
-    # Print all nodes in list
-    list.listprint()
-
-    # Create llist from array
-    list = arr_to_llist([1, 2, 3, 4, 5])
-    list.listprint()
+    # see the demo scripts
+    # demo_llist.py
+    # demo_tree.py
+    pass

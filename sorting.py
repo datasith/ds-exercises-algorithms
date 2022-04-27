@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
 """
 Created on Wed Oct 19 09:21:39 2016
 
 @author: ericgrimson
+@modified: datasith
 """
 
 def bubble_sort(L):
@@ -16,13 +16,7 @@ def bubble_sort(L):
                 temp = L[j]
                 L[j] = L[j-1]
                 L[j-1] = temp
-
-testList = [1,3,5,7,2,6,25,18,13]
-
-print('')
-print(bubble_sort(testList))
-print(testList)
-
+    return L
 
 def selection_sort(L):
     suffixSt = 0
@@ -32,14 +26,8 @@ def selection_sort(L):
             if L[i] < L[suffixSt]:
                 L[suffixSt], L[i] = L[i], L[suffixSt]
         suffixSt += 1
+    return L
  
-testList = [1,3,5,7,2,6,25,18,13]
-       
-print('')
-print(selection_sort(testList))
-print(testList)
-
-
 def merge(left, right):
     result = []
     i,j = 0,0
@@ -68,8 +56,18 @@ def merge_sort(L):
         left = merge_sort(L[:middle])
         right = merge_sort(L[middle:])
         return merge(left, right)
-        
-testList = [1,3,5,7,2,6,25,18,13]
 
-#print('')
-#print(merge_sort(testList))
+import unittest
+class CustomTest(unittest.TestCase):
+    def test_01(self):
+        input = [1,3,5,-7,2,6,25,18,13]
+        self.assertEqual( bubble_sort(input), [-7,1,2,3,5,6,13,18,25] )
+    def test_02(self):
+        input = [1,3,5,-7,2,6,25,18,13]
+        self.assertEqual( selection_sort(input), [-7,1,2,3,5,6,13,18,25] )
+    def test_03(self):
+        input = [1,3,5,-7,2,6,25,18,13]
+        self.assertEqual( merge_sort(input), [-7,1,2,3,5,6,13,18,25] )        
+
+if __name__ == '__main__':
+    unittest.main()
