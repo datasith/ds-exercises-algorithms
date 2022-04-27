@@ -1,4 +1,4 @@
-class CustomStack(object):
+class CustomStack:
     def __init__(self):
         self.items = []
 

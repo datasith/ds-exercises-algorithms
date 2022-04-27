@@ -1,3 +1,3 @@
-# code-snippets-algorithms
+# ds-exercises-algorithms
 
 Repo containing code for practicing algorithms.
