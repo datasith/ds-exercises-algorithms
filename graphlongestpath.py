@@ -22,15 +22,16 @@ def dfs(node, graph, distance):
   distance[node] = 1 + longest
   return distance[node]
 
-graph = {
-  'a': ['c', 'b'],
-  'b': ['c'],
-  'c': [],
-  'q': ['r'],
-  'r': ['s', 'u', 't'],
-  's': ['t'],
-  't': ['u'],
-  'u': []
-}
-
-print( longest_path(graph) ) # -> 4
+if __name__ == '__main__':
+  graph = {
+    'a': ['c', 'b'],
+    'b': ['c'],
+    'c': [],
+    'q': ['r'],
+    'r': ['s', 'u', 't'],
+    's': ['t'],
+    't': ['u'],
+    'u': []
+  }
+  assert longest_path(graph) == 4, "check yo code!"
+  print( longest_path(graph) )

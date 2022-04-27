@@ -42,4 +42,6 @@ if __name__ == '__main__':
     (0, 5),
     ]
     ans = semesters_required(num_courses, prereqs) # -> 3
+    assert ans == 3, "check yo code!"
+
     print(ans)

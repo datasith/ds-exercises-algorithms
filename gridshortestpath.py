@@ -45,12 +45,15 @@ def pprint(grid):
   for r in grid:
     print(*r)
 
-grid = [
-  ["W", "W", "W", "L", "L"],
-  ["L", "L", "W", "W", "L"],
-  ["L", "L", "L", "W", "L"],
-  ["W", "L", "W", "W", "W"],
-  ["W", "W", "W", "W", "W"],
-  ["W", "W", "W", "W", "W"],
-]
-print( best_bridge(grid) ) # -> 1
+if __name__ == '__main__':
+  grid = [
+    ["W", "W", "W", "L", "L"],
+    ["L", "L", "W", "W", "L"],
+    ["L", "L", "L", "W", "L"],
+    ["W", "L", "W", "W", "W"],
+    ["W", "W", "W", "W", "W"],
+    ["W", "W", "W", "W", "W"],
+  ]
+  ans = best_bridge(grid) # -> 1
+  assert ans == 1, "check yo code!"
+  print(ans)

@@ -29,13 +29,15 @@ def build_graph(edges):
     graph[node_a].append(node_b)
     graph[node_b].append(node_a)
   return graph
-  
-edges = [
-  ['w', 'x'],
-  ['x', 'y'],
-  ['z', 'y'],
-  ['z', 'v'],
-  ['w', 'v']
-]
 
-print( shortest_path(edges, 'w', 'z') ) # -> 2
+if __name__ == '__main__':
+  edges = [
+    ['w', 'x'],
+    ['x', 'y'],
+    ['z', 'y'],
+    ['z', 'v'],
+    ['w', 'v']
+  ]
+  ans = shortest_path(edges, 'w', 'z') # -> 2
+  assert ans == 2, "check yo code!"
+  print(ans)

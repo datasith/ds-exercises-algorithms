@@ -60,19 +60,13 @@ class Tree:
 if __name__ == '__main__':
     '''
     Tree sctructure
-         10  
-      /      \
-    None    None
-    '''
-    root = TreeNode(10)
-    root.left = TreeNode(34)
-    root.right = TreeNode(50)
-    '''
-    Tree sctructure
            10  
         /      \
       34       50
     /    \     /    \
     None  None None  None
     '''
+    root = TreeNode(10)
+    root.left = TreeNode(34)
+    root.right = TreeNode(50)
     root.printTree()
