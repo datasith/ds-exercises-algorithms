@@ -1,41 +1,34 @@
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+'''
+Goal is to swap the nth with the n+1th node for all even nodes
+'''
 
-    def __repr__(self):
-        print(self.val)
-# Add any helper functions you may need here
+from util import ListNode, LinkedList, arr_to_llist 
 
+# class ListNode:
+#     def __init__(self, val=None):
+#         self.val = val
+#         self.next = None
 
-def reverse(head):
-    dummy = Node(0)
-    dummy.next = head
+# class LinkedList:
+#     def __init__(self, head=None):
+#         self.head = head
 
+def reverse_list(head):
+    prev = None
     while head:
-        next = head.next
-        head.next = dummy
-        dummy = head
-        head = next
-        
-    return dummy.next
+        next_node = head.next
+        head.next = prev
+        prev = head
+        head = next_node
 
-a = Node("a")
-b = Node("b")
-c = Node("c")
-a.next = b
-b.next = c
-# a -> b -> c
+    return LinkedList(head=prev)
 
-x = Node("x")
-y = Node("y")
-z = Node("z")
-x.next = y
-y.next = z
-# x -> y -> z
-
-l = reverse(a)
-
-while l:
-    print(l.val, end='->')
-    l = l.next
+if __name__ == '__main__':
+    list = LinkedList()
+    list.head = ListNode("Mon")
+    # Create llist from array
+    list = arr_to_llist([1, 2, 3, 4, 5])
+    list.listprint()
+    # Reverse it and test print
+    rev_list = reverse_list(list.head)
+    rev_list.listprint()

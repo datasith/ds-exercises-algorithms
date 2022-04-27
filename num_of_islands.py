@@ -19,8 +19,8 @@ def dfs(grid, i, j):
     dfs( grid, i, j+1 )
 
 import unittest
-class TestStringMethods(unittest.TestCase):
-  def test_1(self):
+class CustomTest(unittest.TestCase):
+  def test_01(self):
     input = [
         [1,1,1,0,0],
         [1,1,1,0,0],

@@ -9,14 +9,18 @@ def is_palindrome(s: str) -> bool:
 
     return False
 
-    # if len(s) < 2: return True
-    # if s[0] != s[-1]: return False
-    # return is_palindrome(s[1:-1])
+import unittest
+class CustomTest(unittest.TestCase):
+  def test_01(self):
+    input = "kaak"
+    self.assertEqual( is_palindrome(input), True )
+  def test_02(self):
+    input = "qwwqqwr"
+    self.assertEqual( is_palindrome(input), False )
+  def test_03(self):
+    input = "1234567890987654321"
+    self.assertEqual( is_palindrome(input), True )    
 
 if __name__ == '__main__':
-    assert is_palindrome("kaak") == True, "check your code!"
-    assert is_palindrome("qwwqqwr") == False, "check your code!"
-    assert is_palindrome("1234567890987654321") == True, "check your code!"
-    assert is_palindrome("5452") == False, "check your code!"
-    assert is_palindrome("1") == True, "check your code!"
-    assert is_palindrome("12") == False, "check your code!"    
+  unittest.main()
+ 

@@ -1,19 +1,13 @@
 from util import ListNode, LinkedList, arr_to_llist 
 
 # class ListNode:
-#     def __init__(self, val=0, next=None):
+#     def __init__(self, val=None):
 #         self.val = val
-#         self.next = next
+#         self.next = None
 
-def reverse_list(head):
-    prev = None
-    while head:
-        next_node = head.next
-        head.next = prev
-        prev = head
-        head = next_node
-
-    return LinkedList(head=prev)
+# class LinkedList:
+#     def __init__(self, head=None):
+#         self.head = head
 
 if __name__ == '__main__':
     list = LinkedList()
@@ -21,6 +15,3 @@ if __name__ == '__main__':
     # Create llist from array
     list = arr_to_llist([1, 2, 3, 4, 5])
     list.listprint()
-    # Reverse it and test print
-    rev_list = reverse_list(list.head)
-    rev_list.listprint()

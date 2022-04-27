@@ -1,4 +1,3 @@
-# Implement your function below.
 def mine_sweeper(bombs, num_rows, num_cols):
     field = [[0 for i in range(num_cols)] for j in range(num_rows)]
 
@@ -12,30 +11,30 @@ def mine_sweeper(bombs, num_rows, num_cols):
 
     return field
 
-
 def to_string(given_array):
     list_rows = []
     for row in given_array:
         list_rows.append(str(row))
     return '[' + ',\n '.join(list_rows) + ']'
 
+if __name__ == '__main__':
+    ans = mine_sweeper([[0, 2], [2, 0]], 3, 3)
+    result = [[0, 1, -1],
+              [1, 2, 1],
+              [-1, 1, 0]]
+    assert ans == result, "check yo code"
 
-# NOTE: The following input values will be used for testing your solution.
-# ans = mine_sweeper([[0, 2], [2, 0]], 3, 3)
-# print( to_string(ans) )
-# [[0, 1, -1],
-#  [1, 2, 1],
-#  [-1, 1, 0]]
+    ans = mine_sweeper([[0, 0], [0, 1], [1, 2]], 3, 4)
+    result = [[-1, -1, 2, 1],
+              [2, 3, -1, 1],
+              [0, 1, 1, 1]]
+    assert ans == result, "check yo code"
 
-ans = mine_sweeper([[0, 0], [0, 1], [1, 2]], 3, 4)
-print( to_string(ans) )
-# [[-1, -1, 2, 1],
-#  [2, 3, -1, 1],
-#  [0, 1, 1, 1]]
-
-# mine_sweeper([[1, 1], [1, 2], [2, 2], [4, 3]], 5, 5) should return:
-# [[1, 2, 2, 1, 0],
-#  [1, -1, -1, 2, 0],
-#  [1, 3, -1, 2, 0],
-#  [0, 1, 2, 2, 1],
-#  [0, 0, 1, -1, 1]]
+    ans = mine_sweeper([[1, 1], [1, 2], [2, 2], [4, 3]], 5, 5)
+    result = [[1, 2, 2, 1, 0],
+              [1, -1, -1, 2, 0],
+              [1, 3, -1, 2, 0],
+              [0, 1, 2, 2, 1],
+              [0, 0, 1, -1, 1]]
+    assert ans == result, "check yo code"
+    print( to_string(ans) )

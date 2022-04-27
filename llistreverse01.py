@@ -1,42 +1,30 @@
-class ListNode(object):
-    def __init__(self, val: int, next: int=None) -> 'ListNode':
-        self.val = val
-        self.next = next
+from util import ListNode, LinkedList, arr_to_llist 
 
-    def __repr__(self):
-        return f'{{val:{self.val}, next:{self.next}}}'
+# class ListNode:
+#     def __init__(self, val=None):
+#         self.val = val
+#         self.next = None
 
-def list_to_llist(data: list) -> [ListNode]:
-    out = []
-    n = len(data)
-    if n == 0:
-        return []
-    elif n == 1:
-        return [ListNode(data[0], None)]
-    data.append(None)
-    for i in range(n):
-        d = data[i]
-        next = data[i+1]
-        out.append(ListNode(d, next))
-    return out
+# class LinkedList:
+#     def __init__(self, head=None):
+#         self.head = head
 
-def reverse_llist(_llist: [ListNode]):
-    l = []
-    for node in _llist:
-        l.append(node)
+def reverse_list(head):
+    prev = None
+    while head:
+        next_node = head.next
+        head.next = prev
+        prev = head
+        head = next_node
 
-    return list_to_llist(l)
-
-
-    return _llist
+    return LinkedList(head=prev)
 
 if __name__ == '__main__':
-    node = ListNode(1)
-    _ = range(5)
-    _llist = list_to_llist(list(_))
-    print(_llist)
-    _rllist = reverse_llist(_llist)
-    print(_rllist)
-
-
-        
+    list = LinkedList()
+    list.head = ListNode("Mon")
+    # Create llist from array
+    list = arr_to_llist([1, 2, 3, 4, 5])
+    list.listprint()
+    # Reverse it and test print
+    rev_list = reverse_list(list.head)
+    rev_list.listprint()

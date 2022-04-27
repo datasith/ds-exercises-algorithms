@@ -35,4 +35,6 @@ def merge(l,r):
 
 if __name__ == '__main__':
   input = [1,3,100,-1,-100,2]
-  print(mergesort(input))
+  ans = mergesort(input)
+  assert ans == [-100, -1, 1, 2, 3, 100], "check yo code"
+  print(ans)

@@ -1,2 +1,3 @@
 # code-snippets-algorithms
-Repo containing code for practicing algorithms
+
+Repo containing code for practicing algorithms.
