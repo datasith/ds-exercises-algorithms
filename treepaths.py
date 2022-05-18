@@ -6,23 +6,22 @@ from utils import TreeNode, print_tree
 #         self.val = val
 #         self.left = None
 
-def treepaths(root, treepath = [], paths=[]):
+def all_tree_paths(root, treepath = [], paths=[]):
     if not root:
         return
 
-    if not root.left and not root.right:
-        treepath.append(root.val)
-        paths.append(treepath)
+    treepath.append(root.val)
+    
+    if root.left is None and root.right is None:
+        paths.append( treepath )
     
     if root.left:
         left = [ *treepath ]
-        left.append(root.val)
-        treepaths(root.left, left, paths)
+        all_tree_paths(root.left, left, paths)
 
     if root.right:
         right = [ *treepath ]
-        right.append(root.val)
-        treepaths(root.right, right, paths)
+        all_tree_paths(root.right, right, paths)
 
     return paths
 
@@ -42,7 +41,7 @@ class CustomTest(unittest.TestCase):
     def test01(self):
         print_tree(self.a)
         output = [['a', 'b', 'd'], ['a', 'b', 'e'], ['a', 'c', 'f']]
-        self.assertEqual( treepaths(self.a), output )
+        self.assertEqual( all_tree_paths(self.a), output )
 
 if __name__ == '__main__':
     unittest.main()
