@@ -1,12 +1,28 @@
 def iou(bbox1, bbox2):
-    
+
+#  ___
+# |   |
+#  ---
+#       ____
+#      |    |
+#       ----
+#
+# (xm1, ym1)
+#
+#         (xm2, ym2)
+#
+#               (xM1, yM1)
+#
+#
+#                     (xM2, yM2)
+
     xm1,ym1,xM1,yM1 = bbox1
     xm2,ym2,xM2,yM2 = bbox2
 
-    if xm2 > xM1 or xm1 > xM2 or yM1 < ym1 or yM2 < ym1:
+    if xm2 > xM1 or xm1 > xM2 or yM1 < ym2 or yM2 < ym1:
         return 0
 
-    bbox_i = [max(xm1,xm2), max(ym1,ym2), min(xM1,xM2), min(ym1,ym2)]
+    bbox_i = [max(xm1,xm2), max(ym1,ym2), min(xM1,xM2), min(yM1,yM2)]
 
     return area(bbox_i) / ( area(bbox1) + area(bbox2) - area(bbox_i) )
 
