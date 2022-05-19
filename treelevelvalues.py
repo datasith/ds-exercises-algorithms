@@ -44,7 +44,7 @@ class CustomTest(unittest.TestCase):
         #   ['b', 'c'],
         #   ['d', 'e', 'f']
         # ]
-        self.assertEqual(ans, [['a'],['b', 'c'],['d', 'e', 'f']])
+        self.assertEqual(ans, [['a'],['b', 'c'],['d', 'e', 'f']], "check yo code")
                 
 if __name__ == '__main__':
     unittest.main()
