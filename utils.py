@@ -71,6 +71,18 @@ class Tree:
         # garbage collector will do this for us. 
         self.root = None
 
+def print_grid(grid):
+    for r in grid:
+        print(*r)
+
+def print_hashmap(d, indent=0):
+     for key, value in d.items():
+        if isinstance(value, dict):
+            print('  ' * indent + str(key))
+            print_hashmap(value, indent+1)
+        else:
+            print('  ' * (indent+1) + f"{key}: {value}")
+
 def print_tree(root, val="val", left="left", right="right"):
     # https://stackoverflow.com/questions/34012886/print-binary-tree-level-by-level-in-python
     def display(root, val=val, left=left, right=right):

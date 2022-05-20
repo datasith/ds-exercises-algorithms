@@ -1,4 +1,5 @@
 from collections import deque
+from utils import print_grid
 
 def best_bridge(grid):
     first = []
@@ -41,10 +42,6 @@ def _first_island(i,j,grid,output=[]):
     
     return output
 
-def pprint(grid):
-    for r in grid:
-        print(*r)
-
 if __name__ == '__main__':
     grid = [
         ["W", "W", "W", "L", "L"],
@@ -54,6 +51,7 @@ if __name__ == '__main__':
         ["W", "W", "W", "W", "W"],
         ["W", "W", "W", "W", "W"],
     ]
+    print_grid(grid)
     ans = best_bridge(grid) # -> 1
     assert ans == 1, "check yo code!"
     print(ans)

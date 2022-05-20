@@ -7,11 +7,11 @@ def iou(bbox1, bbox2):
 #      |    |
 #       ----
 #
-# (xm1, ym1)
+#             (xm1, ym1)
 #
 #         (xm2, ym2)
 #
-#               (xM1, yM1)
+#                (xM1, yM1)
 #
 #
 #                     (xM2, yM2)
